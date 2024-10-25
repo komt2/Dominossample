@@ -1,0 +1,555 @@
+<html><head><base href="https://dominos-training.com/game/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Domino's Pizza Ingredient Game</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+}
+
+.neon {
+  --background: 240 100% 5%;
+  --foreground: 0 0% 100%;
+  --card: 240 100% 10%;
+  --card-foreground: 0 0% 100%;
+  --popover: 240 100% 10%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 320 100% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 180 100% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 240 50% 20%;
+  --muted-foreground: 0 0% 80%;
+  --accent: 60 100% 50%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 50% 20%;
+  --input: 240 50% 20%;
+  --ring: 320 100% 60%;
+}
+
+.retro {
+  --background: 30 30% 90%;
+  --foreground: 30 10% 10%;
+  --card: 30 20% 85%;
+  --card-foreground: 30 10% 10%;
+  --popover: 30 20% 85%;
+  --popover-foreground: 30 10% 10%;
+  --primary: 20 80% 50%;
+  --primary-foreground: 30 30% 90%;
+  --secondary: 180 30% 50%;
+  --secondary-foreground: 30 30% 90%;
+  --muted: 30 20% 80%;
+  --muted-foreground: 30 10% 30%;
+  --accent: 300 30% 50%;
+  --accent-foreground: 30 30% 90%;
+  --destructive: 0 80% 50%;
+  --destructive-foreground: 30 30% 90%;
+  --border: 30 20% 70%;
+  --input: 30 20% 70%;
+  --ring: 20 80% 50%;
+}
+
+.futuristic {
+  --background: 220 50% 10%;
+  --foreground: 180 100% 90%;
+  --card: 220 50% 15%;
+  --card-foreground: 180 100% 90%;
+  --popover: 220 50% 15%;
+  --popover-foreground: 180 100% 90%;
+  --primary: 200 100% 60%;
+  --primary-foreground: 220 50% 10%;
+  --secondary: 280 100% 60%;
+  --secondary-foreground: 220 50% 10%;
+  --muted: 220 50% 20%;
+  --muted-foreground: 180 100% 80%;
+  --accent: 140 100% 60%;
+  --accent-foreground: 220 50% 10%;
+  --destructive: 0 100% 60%;
+  --destructive-foreground: 220 50% 10%;
+  --border: 220 50% 20%;
+  --input: 220 50% 20%;
+  --ring: 200 100% 60%;
+}
+
+.nederlands {
+  --background: 35 100% 98%;
+  --foreground: 10 80% 35%;
+  --card: 35 100% 95%;
+  --card-foreground: 10 80% 35%;
+  --popover: 35 100% 95%;
+  --popover-foreground: 10 80% 35%;
+  --primary: 10 80% 50%;
+  --primary-foreground: 35 100% 98%;
+  --secondary: 200 70% 55%;
+  --secondary-foreground: 35 100% 98%;
+  --muted: 35 50% 90%;
+  --muted-foreground: 10 60% 40%;
+  --accent: 30 90% 50%;
+  --accent-foreground: 35 100% 98%;
+  --destructive: 0 80% 50%;
+  --destructive-foreground: 35 100% 98%;
+  --border: 35 50% 80%;
+  --input: 35 50% 80%;
+  --ring: 10 80% 50%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: hsl(var(--foreground));
+}
+
+#question {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: hsl(var(--muted-foreground));
+}
+
+#options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.ingredient {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  padding: 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid hsl(var(--border));
+}
+
+.ingredient:hover {
+  background-color: hsl(var(--accent));
+}
+
+.ingredient.selected {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+button {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 25px;
+  margin: 8px;
+  border-radius: var(--radius);
+  color: hsl(var(--primary-foreground));
+  background-color: hsl(var(--primary));
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#result {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 15px;
+  color: hsl(var(--foreground));
+}
+
+#score {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: hsl(var(--muted-foreground));
+}
+
+#theme-selector {
+  margin-bottom: 15px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#theme-selector:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+.ingredient.correct { 
+  background-color: hsl(142.1 76.2% 36.3%);
+  color: hsl(355.7 100% 97.3%);
+}
+.ingredient.incorrect { 
+  background-color: hsl(0 84.2% 60.2%);
+  color: hsl(355.7 100% 97.3%);
+}
+.ingredient.missed { 
+  background-color: hsl(48 96.5% 53.9%);
+  color: hsl(355.7 100% 97.3%);
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+#pizza-toggles {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pizza-toggle {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: var(--radius);
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pizza-toggle.active {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+@media (max-width: 600px) {
+  #game-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  #question {
+    font-size: 16px;
+  }
+
+  #options {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredient {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+
+  #score, #result {
+    font-size: 16px;
+  }
+
+  #theme-selector {
+    font-size: 12px;
+  }
+
+  #pizza-toggles {
+    flex-wrap: wrap;
+  }
+
+  .pizza-toggle {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="game-container">
+  <h1 class="fade-in">Domino's Pizza Ingredient Game</h1>
+
+  <div id="score" class="fade-in">Score: <span id="score-value">0</span> | High Score: <span id="high-score">0</span></div>
+
+  <select id="theme-selector" class="fade-in">
+    <option value="light">Licht Thema</option>
+    <option value="dark">Donker Thema</option>
+    <option value="neon">Neon Thema</option>
+    <option value="retro">Retro Thema</option>
+    <option value="futuristic">Futuristisch Thema</option>
+    <option value="nederlands">Nederlands Thema</option>
+  </select>
+
+  <div id="pizza-toggles" class="fade-in">
+    <div class="pizza-toggle active" data-category="classic">Classic</div>
+    <div class="pizza-toggle active" data-category="supreme">Supreme</div>
+    <div class="pizza-toggle active" data-category="meaty">Meaty</div>
+  </div>
+
+  <div id="question" class="fade-in"></div>
+
+  <div id="options" class="fade-in"></div>
+
+  <button id="submit" class="fade-in">Bevestig</button>
+  <button id="next" style="display: none;" class="fade-in">Volgende Vraag</button>
+
+  <div id="result" class="fade-in"></div>
+</div>
+
+<script>
+const pizzas = {
+  classic: [
+    {name: "Pizza Margherita", ingredients: ["Tomatensaus", "Extra mozzarella", "Pizzakruiden"]},
+    {name: "Pizza Perfect Pepperoni", ingredients: ["Tomatensaus", "Mozzarella", "Pepperoni"]},
+    {name: "Pizza Funghi", ingredients: ["Tomatensaus", "Mozzarella", "Champignons", "Pizzakruiden"]},
+    {name: "Quattro Stagioni", ingredients: ["Tomatensaus", "Mozzarella", "Salami", "Ham", "Champignons", "Paprika"]},
+    {name: "Pizza Salami", ingredients: ["Tomatensaus", "Mozzarella", "Salami"]},
+    {name: "Pizza Hawaii", ingredients: ["Tomatensaus", "Ham", "Ananas", "Extra mozzarella"]},
+    {name: "Pizza Four Cheese", ingredients: ["Tomatensaus", "Mozzarella", "Gouda en cheddar kaasmix", "Emmentaler"]},
+    {name: "Pizza Tonno", ingredients: ["Tomatensaus", "Tonijn", "Ui", "Extra mozzarella"]},
+    {name: "Pizza Caprese", ingredients: ["Tomatensaus", "Mozzarella", "Verse spinazie", "Verse tomaat", "Mini mozzarella bolletjes", "Pizzakruiden", "Pesto swirl"]}
+  ],
+  supreme: [
+    {name: "Bianca Funghi", ingredients: ["Crème fraîche", "Mozzarella", "Champignons", "Gouda en cheddar kaasmix", "Pesto swirl"]},
+    {name: "Pizza BBQ Mixed Grill", ingredients: ["BBQ saus", "Mozzarella", "Bacon", "Ham", "Gegrilde kip", "Rundergehakt", "Paprika", "Ui"]},
+    {name: "Pizza Chicken Supreme", ingredients: ["Tomatensaus", "Mozzarella", "Gegrilde kip", "Ui", "Paprika", "Verse tomaat", "Pizzakruiden"]},
+    {name: "Pizza Extravaganzza", ingredients: ["Tomatensaus", "Extra veel mozzarella", "Ham", "Pepperoni", "Gehakt", "Champignons", "Paprika", "Ui"]},
+    {name: "Pizza Hot & Spicy", ingredients: ["Tomatensaus", "Mozzarella", "Pepperoni", "Paprika", "Ui", "Jalapeños"]},
+    {name: "Pizza Spicy Chicken Meatlover", ingredients: ["Tomatensaus", "Mozzarella", "Gegrilde kip", "Kip kebab", "Jalapeños", "Paprika", "Ui"]},
+    {name: "Pizza Veggi", ingredients: ["Tomatensaus", "Mozzarella", "Champignons", "Paprika", "Ui", "Verse spinazie", "Verse tomaat"]},
+    {name: "Pizza Veggi Chicken Supreme", ingredients: ["Tomatensaus", "Mozzarella", "Ui", "Paprika", "Vegetarische kip", "Verse tomaat", "Pizzakruiden"]}
+  ],
+  meaty: [
+    {name: "Pizza Shoarma & Kebab Supreme", ingredients: ["Tomatensaus", "Mozzarella", "Kip kebab", "Shoarma", "Paprika", "Ui", "Knoflooksaus swirl", "Harissa swirl"]},
+    {name: "Pizza Shoarma", ingredients: ["Tomatensaus", "Mozzarella", "Shoarma", "Knoflooksaus swirl"]},
+    {name: "Pizza Chicken Kebab", ingredients: ["Tomatensaus", "Mozzarella", "Kip kebab", "Ui", "Knoflooksaus swirl"]},
+    {name: "Pizza BBQ Chicken & Bacon", ingredients: ["BBQ saus", "Mozzarella", "Gegrilde kip", "Bacon"]},
+    {name: "Pizza American Supreme Meatlover", ingredients: ["BBQ saus", "Mozzarella", "Pepperoni", "Rundergehakt", "Kip kebab", "Bacon", "Ui"]},
+    {name: "Pizza Creamy Bacon", ingredients: ["Crème fraîche", "Mozzarella", "Bacon", "Ham", "Champignons", "Ui", "Pizzakruiden"]},
+    {name: "Pizza Pepperoni Party", ingredients: ["Tomatensaus", "Extra veel mozzarella", "Extra veel pepperoni"]},
+    {name: "Pizza Americana", ingredients: ["Tomatensaus", "Mozzarella", "Ham", "Pepperoni", "Rundergehakt"]},
+    {name: "Pizza Ham", ingredients: ["Tomatensaus", "Mozzarella", "Ham"]},
+    {name: "Pizza Pulled Pork Meatlover", ingredients: ["Crème fraîche", "BBQ swirl", "Mozzarella", "Ham", "Ui", "Pulled Pork", "Bacon", "Lente ui"]}
+  ]
+};
+
+const allIngredients = [...new Set(Object.values(pizzas).flat().flatMap(pizza => pizza.ingredients))];
+
+let currentPizza;
+let score = 0;
+let highScore = parseInt(getCookie('highScore')) || 0;
+let activePizzaCategories = ["classic", "supreme", "meaty"];
+let incorrectPizzas = [];
+
+function setCookie(name, value, days) {
+  const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+}
+
+function getCookie(name) {
+  const cookies = document.cookie.split('; ');
+  const cookie = cookies.find(row => row.startsWith(name));
+  return cookie ? cookie.split('=')[1] : null;
+}
+
+function updateHighScore() {
+  if (score > highScore) {
+    highScore = score;
+    setCookie('highScore', highScore, 365);
+  }
+  document.getElementById('high-score').textContent = highScore;
+}
+
+function getRandomIngredients(count, excludeIngredients) {
+  const availableIngredients = allIngredients.filter(ingredient => !excludeIngredients.includes(ingredient));
+  return shuffleArray(availableIngredients).slice(0, count);
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function setupQuestion() {
+  if (incorrectPizzas.length > 0) {
+    currentPizza = incorrectPizzas.pop();
+  } else {
+    const activePizzas = activePizzaCategories.flatMap(category => pizzas[category]);
+    currentPizza = activePizzas[Math.floor(Math.random() * activePizzas.length)];
+  }
+  
+  document.getElementById("question").textContent = `Welke ingrediënten zitten er op een ${currentPizza.name}?`;
+  
+  const options = document.getElementById("options");
+  options.innerHTML = "";
+  
+  const displayIngredients = [...currentPizza.ingredients];
+  const additionalIngredients = getRandomIngredients(7, currentPizza.ingredients);
+  displayIngredients.push(...additionalIngredients);
+  
+  shuffleArray(displayIngredients).forEach(ingredient => {
+    const div = document.createElement("div");
+    div.className = "ingredient fade-in";
+    div.textContent = ingredient;
+    div.addEventListener("click", () => div.classList.toggle("selected"));
+    options.appendChild(div);
+  });
+  
+  document.getElementById("result").textContent = "";
+  document.getElementById("submit").style.display = "block";
+  document.getElementById("next").style.display = "none";
+}
+
+function checkAnswer() {
+  const options = document.getElementById("options");
+  const selected = Array.from(document.getElementsByClassName("selected")).map(div => div.textContent);
+  
+  options.childNodes.forEach(div => {
+    div.classList.remove("correct", "incorrect", "missed");
+    
+    if (currentPizza.ingredients.includes(div.textContent)) {
+      if (selected.includes(div.textContent)) {
+        div.classList.add("correct");
+      } else {
+        div.classList.add("missed");
+      }
+    } else {
+      if (selected.includes(div.textContent)) {
+        div.classList.add("incorrect");
+      }
+    }
+  });
+  
+  if (arraysEqual(selected, currentPizza.ingredients)) {
+    document.getElementById("result").textContent = "Correct! Goed gedaan!";
+    score += 10;
+  } else {
+    document.getElementById("result").textContent = "Niet helemaal. Kijk naar de kleuren om te zien wat je hebt gemist of fout had.";
+    incorrectPizzas.push(currentPizza);
+  }
+  
+  document.getElementById("score-value").textContent = score;
+  updateHighScore();
+  document.getElementById("submit").style.display = "none";
+  document.getElementById("next").style.display = "block";
+}
+
+function arraysEqual(a, b) {
+  if (a.length !== b.length) return false;
+  
+  const sortedA = [...a].sort();
+  const sortedB = [...b].sort();
+  
+  return sortedA.every((ingredient, index) => ingredient === sortedB[index]);  
+}
+
+document.getElementById("submit").addEventListener("click", checkAnswer);
+document.getElementById("next").addEventListener("click", setupQuestion);
+
+document.getElementById("theme-selector").addEventListener("change", (event) => {
+  document.body.className = event.target.value;
+});
+
+document.querySelectorAll(".pizza-toggle").forEach(toggle => {
+  toggle.addEventListener("click", () => {
+    const category = toggle.dataset.category;
+    toggle.classList.toggle("active");
+    if (toggle.classList.contains("active")) {
+      activePizzaCategories.push(category);
+    } else {
+      activePizzaCategories = activePizzaCategories.filter(c => c !== category);
+    }
+    if (activePizzaCategories.length === 0) {
+      toggle.classList.add("active");
+      activePizzaCategories.push(category);
+    }
+  });
+});
+
+// Initialize high score on page load
+document.addEventListener('DOMContentLoaded', () => {
+  updateHighScore();
+  setupQuestion();
+});
+</script>
+</body>
+</html>
